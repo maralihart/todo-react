@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TodoItem from './Components/TodoItem';
 
 function App() {
   const [todo, setTodo] = useState([]);
@@ -23,9 +24,8 @@ function App() {
       <ul>
 
         {todo.map((item, index) => 
-          <li key={index}>
-            <button onClick={() => completeTask(index)}>{item}</button>
-          </li>)}
+          <TodoItem index={index} onClick={() => completeTask(index)} item={item} />
+        )}
 
         <li>
           <input value={newItem} onChange={changeHandler} /> 
